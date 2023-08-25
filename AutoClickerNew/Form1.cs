@@ -29,36 +29,37 @@ namespace AutoClickerNew
             }
         }
 
-        private void startAutoClick()
+        private void StartAutoClick()
         {
             AutoClicker.Interval = (int)(1000.0 / trackBar.Value);
             AutoClicker.Start();
+
+
+
+        }
+        private void StopAutoClick()
+        {
             buttonStart.Enabled = false;
             buttonStop.Enabled = true;
-
-
-        }
-
-        private void StopAutoClicker()
-        {
             AutoClicker.Stop();
-            buttonStop.Enabled = false;
             buttonStart.Enabled = true;
+            buttonStop.Enabled = false;
         }
 
-        private void ButtonStart_click(object sender, EventArgs e)
+        private void buttonStart_Click(object sender, EventArgs e)
         {
-            startAutoClick();
+            StartAutoClick();
         }
 
         private void buttonStop_Click(object sender, EventArgs e)
         {
-            StopAutoClicker();
+            StopAutoClick();
         }
 
         private void trackBar_Scroll(object sender, EventArgs e)
         {
             trackBarText.Text = trackBar.Value.ToString();
         }
+
     }
 }
