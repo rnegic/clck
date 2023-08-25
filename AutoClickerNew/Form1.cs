@@ -11,6 +11,8 @@ namespace AutoClickerNew
 {
     public partial class FormAutoClicker : Form
     {
+        //импортируем из библиотеки, предназначенной для работы с интерфейсом функцию mouse_event
+
         [DllImport("user32.dll")]
         private static extern void mouse_event(int dwFlags, int dx, int dy, int dwData, int dwExtraInfo);
 
@@ -19,18 +21,23 @@ namespace AutoClickerNew
             InitializeComponent();
         }
 
+        //таймер
         private void AutoClicker_Tick(object sender, EventArgs e)
         {
             if(!Bounds.Contains(PointToClient(MousePosition)))
             {
+                //нажатие
                 mouse_event(0x02, 0, 0, 0, 0);
+                //задержка 10 мс
                 System.Threading.Thread.Sleep(10);
+                //отпускание
                 mouse_event(0x04, 0, 0, 0, 0);
             }
         }
 
         private void StartAutoClick()
         {
+            //чем больше значение ползунка, тем меньше интервал между кликами.
             AutoClicker.Interval = (int)(1000.0 / trackBar.Value);
             AutoClicker.Start();
             buttonStart.Enabled = false;
