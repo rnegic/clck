@@ -58,6 +58,7 @@
             this.buttonStop.TabIndex = 1;
             this.buttonStop.Text = "Stop";
             this.buttonStop.UseVisualStyleBackColor = false;
+            this.buttonStop.Click += new System.EventHandler(this.buttonStop_Click);
             // 
             // trackBar
             // 
@@ -68,6 +69,7 @@
             this.trackBar.Size = new System.Drawing.Size(460, 45);
             this.trackBar.TabIndex = 2;
             this.trackBar.Value = 10;
+            this.trackBar.Scroll += new System.EventHandler(this.trackBar_Scroll);
             // 
             // trackBarText
             // 
