@@ -33,14 +33,12 @@ namespace AutoClickerNew
         {
             AutoClicker.Interval = (int)(1000.0 / trackBar.Value);
             AutoClicker.Start();
-
-
-
-        }
-        private void StopAutoClick()
-        {
             buttonStart.Enabled = false;
             buttonStop.Enabled = true;
+        }
+
+        private void StopAutoClick()
+        {
             AutoClicker.Stop();
             buttonStart.Enabled = true;
             buttonStop.Enabled = false;
